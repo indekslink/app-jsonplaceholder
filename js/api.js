@@ -4,6 +4,14 @@ export const fetchUsers = async () => {
   return response.json();
 };
 
+// Fetch user by ID (for detailed information)
+export const fetchUserById = async (userId) => {
+  const response = await fetch(
+    `https://jsonplaceholder.typicode.com/users/${userId}`
+  );
+  return response.json();
+};
+
 // Fetch posts by user ID
 export const fetchPostsByUser = async (userId) => {
   const response = await fetch(

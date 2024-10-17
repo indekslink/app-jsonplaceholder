@@ -6,6 +6,7 @@ import {
   renderTodosModal,
   renderCommentsModal,
   renderPhotosModal,
+  renderUserDetailModal,
 } from "./render.js";
 
 document.addEventListener("DOMContentLoaded", async () => {
@@ -19,13 +20,15 @@ document.addEventListener("DOMContentLoaded", async () => {
   userTableBody.addEventListener("click", (event) => {
     const userId = event.target.getAttribute("data-user-id");
     const action = event.target.getAttribute("data-action");
-
+    const userName = event.target.closest("tr").querySelector("td").innerText;
     if (action === "posts") {
       renderPostModal(userId);
     } else if (action === "albums") {
       renderAlbumsModal(userId);
     } else if (action === "todos") {
       renderTodosModal(userId);
+    } else if (action === "user-detail") {
+      renderUserDetailModal(userId, userName);
     }
   });
 
